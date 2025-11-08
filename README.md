@@ -31,7 +31,7 @@ This language is designed to:
                           
 # Motivation, goal setting, design principles
 👉  [**01_DSL_Goals_and_Principles.md**](https://github.com/rock-the-prototype/dsl-docs/blob/main/01_DSL_Goals_and_Principles.md)  
-for details on motivation, goal setting, and design principles.  
+for more details on motivation, goal setting, and design principles.  
 
 Digital transformation in regulated environments has reached a critical point.  
 Many public digitalization projects in Germany and Europe have demonstrated the limits of fragmented, incompatible, and non-auditable infrastructures — both technically and in terms of public trust and acceptance.
@@ -65,7 +65,90 @@ In essence, **trust arises from transparency**, and transparency begins with the
 
 
 # Getting Started
-│
+The Audit-by-Design DSL is actually divided into two core repositories —  
+one for **concept and specification**, and one for **implementation and validation**.
+
+| Repository | Purpose | Access |
+|-------------|----------|--------|
+| [`rock-the-prototype/dsl-docs`](https://github.com/rock-the-prototype/dsl-docs) | Documentation, principles, grammar, and design rationale | You are here ✅ |
+| [`rock-the-prototype/dsl-core`](https://github.com/rock-the-prototype/dsl-core) | Core specification and schemas for machine validation and parser integration | [Open Repository →](https://github.com/rock-the-prototype/dsl-core) |
+
+### 1️⃣ Explore the Concept
+
+Start here in `dsl-docs` to understand:
+- the motivation and guiding principles ([01_DSL_Goals_and_Principles.md](./01_DSL_Goals_and_Principles.md)),
+- the formal grammar definition ([02_DSL_Grammar.md](./02_DSL_Grammar.md)),
+- and how validation and auditability are built into the design.
+
+These documents explain **why** the DSL exists, **how** it is structured,  
+and **which principles** ensure auditability, transparency, and regulatory alignment.
+
+### 2️⃣ Move to the Core
+
+Once you understand the conceptual foundation,  
+visit [`dsl-core`](https://github.com/rock-the-prototype/dsl-core) to see how the DSL is implemented.
+
+There you’ll find:
+- the current **JSON schemas** and **validation logic**,  
+- examples of atomic requirement definitions,  
+- and the integration points for **CI/CD validation pipelines**.
+
+The `dsl-core` repository is where **machine-readable trust begins** —  
+it provides the structural backbone for any parser, validator, or compliance framework built on top of this DSL.
+
+### 3️⃣ (Optional) Contribute & Participate
+
+The DSL is open for participation.  
+Whether you are a developer, architect, researcher, or compliance expert —  
+your contributions help make requirements transparent, testable, and verifiable for everyone.
+
+If you’d like to join, please see  
+👉 [**How to Contribute**](./CONTRIBUTING.md) *(coming soon)*  
+for details on collaboration, governance rules, and peer review.
+
+---
+
+## Why participation matters  
+❇️ Audit-by-Design is not just a concept — it is an invitation to co-create a transparent, verifiable foundation for digital trust. ❇️ Every contribution strengthens the collective ability to build software that is explainable, compliant, and accountable by secure design.
+❇️ 
+
+## Organizational benefits of participation
+
+By contributing to the Audit-by-Design DSL initiative, organizations gain tangible and strategic advantages:
+
+- **Verifiable compliance**  
+  Each requirement can be linked to audit rules and legal references (e.g. AFOs, BSI TRs, EUDI).  
+  This reduces audit effort, supports conformity checks, and shortens certification cycles.
+
+- **Traceable development processes**  
+  The DSL integrates directly with Git-based workflows, 
+  enabling continuous validation and historical traceability of all requirement changes.
+
+- **Improved software assurance**  
+  Formalized requirements reduce ambiguity in specifications and vendor contracts.  
+  Testing and validation become reproducible and verifiable.
+
+- **Trust and transparency by design**  
+  Publicly understandable and machine-readable requirements build confidence  
+  among users, partners, and oversight bodies — not just within IT,  
+  but across management, governance, and compliance departments.
+
+- **Cross-sector interoperability**  
+  Shared semantics allow organizations from different sectors  
+  to align their audit criteria and technical standards without revealing proprietary data.
+
+- **Reduced operational risk**  
+  Consistent definitions and automated validation help detect conflicts,  
+  redundancies, and gaps early — before they manifest in production or compliance audits.
+
+- **Sovereignty through open standards**  
+  Participation ensures independence from proprietary toolchains  
+  and strengthens collective control over digital trust infrastructures.
+
+In short: **Organizations that contribute to the DSL are shaping the standard  
+for trustworthy digital services — not adapting secure design to it later.**
+
+
 │
 │                  
 # Formal grammar, syntax principles, examples
