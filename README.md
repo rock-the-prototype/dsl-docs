@@ -78,7 +78,7 @@ one for **concept and specification**, and one for **implementation and validati
 Start here in `dsl-docs` to understand:
 - the motivation and guiding principles ([01_DSL_Goals_and_Principles.md](./01_DSL_Goals_and_Principles.md)),
 - the formal grammar definition ([02_DSL_Grammar.md](./02_DSL_Grammar.md)),
-- and how validation and auditability are built into the design.
+- and how validation and auditability are built into secure design.
 
 These documents explain **why** the DSL exists, **how** it is structured,  
 and **which principles** ensure auditability, transparency, and regulatory alignment.
@@ -148,12 +148,66 @@ By contributing to the Audit-by-Design DSL initiative, organizations gain tangib
 In short: **Organizations that contribute to the DSL are shaping the standard  
 for trustworthy digital services — not adapting secure design to it later.**
 
-
 │
 │                  
 # Formal grammar, syntax principles, examples
 │
 ├── 02_DSL_Grammar.md  
+the formal grammar definition ([02_DSL_Grammar.md](./02_DSL_Grammar.md)),syntax principles, and examples  
+
+Defines the smallest atomic unit of the Audit-by-Design DSL —  
+a **Requirement Atom** — based on a deterministic, context-free grammar (CFG).
+
+## Formal Grammar, Syntax Principles & Examples
+
+The Audit-by-Design DSL uses a **context-free grammar (CFG)** to describe  
+the smallest verifiable unit of a requirement — the **Requirement Atom**.  
+This grammar defines how human-readable statements can be parsed into  
+machine-interpretable structures for validation, testing, and audit reporting.
+
+### Grammar Definition (EBNF)
+
+```ebnf
+<requirement> ::= <sentence> <terminator>
+
+<sentence> ::= <actor_clause> <action_clause> [<condition_clause>] [<result_clause>]
+
+<actor_clause> ::= "As" <role>
+<action_clause> ::= "I" <modality> <action>
+<condition_clause> ::= "when" <condition>
+<result_clause> ::= "then" <expected_result>
+
+<terminator> ::= "."
+
+<modality> ::= "must" | "shall" | "must not" | "shall not"
+
+<role> ::= <identifier>
+<action> ::= <verb_phrase>
+<condition> ::= <clause>
+<expected_result> ::= <clause>
+
+<identifier> ::= [A-Za-z0-9_-]+
+<verb_phrase> ::= [A-Za-z ]+
+<clause> ::= [A-Za-z0-9 ,_()-]+
+```
+
+*“As a system,  
+I must validate the access token  
+when receiving an ePrescription request  
+then log success or failure.”*
+
+### Why this PROOF of IT SECURITY matters
+
+In regulated environments, every software action that processes, stores,  
+or transmits data must be **traceable, verifiable, and reproducible**.  
+That is the essence of *Secure by Design* and *Audit by Design*.  
+
+The Audit-by-Design DSL ensures that such requirements are written  
+in a form that is **unambiguous, testable, and machine-validated**.  
+Even a simple statement like the following demonstrates how  
+security, compliance, and auditability are expressed in one atomic sentence.
+
+
 │
 │         
 # Parser/Validator, audit concept
