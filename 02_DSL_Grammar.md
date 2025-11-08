@@ -109,4 +109,32 @@ without losing semantic meaning or auditability.
   "result": "then log success or failure"
 }
 ```
+## Why Context-Free Grammars (CFG) Matter
 
+To design a domain-specific language (DSL) that is **auditable, machine-readable, and automatically verifiable**, we need a formal foundation that defines how valid sentences are built and interpreted.
+
+That foundation is provided by **context-free grammars (CFGs)** —  
+the mathematical model behind most modern programming and specification languages.
+
+### Why CFGs are essential for our DSL
+
+- **Well-structured syntax**  
+  CFGs describe hierarchical structures through production rules,  
+  ensuring that every statement in the DSL can be parsed and represented as a syntax tree.
+
+- **Deterministic parsing**  
+  Each rule in a CFG defines exactly how a sentence can be decomposed,  
+  allowing machines to validate syntax and semantics unambiguously.
+
+- **Automatic validation**  
+  A formally defined grammar enables continuous testing, linting,  
+  and compliance validation within CI/CD pipelines — without human interpretation.
+
+- **Compatibility with structured data**  
+  CFGs align perfectly with JSON- and YAML-like representations,  
+  making them ideal for both textual and machine-readable DSLs.
+
+### Summary
+
+Developing our own DSL means defining a **well-structured, unambiguous, and parsable language**.  
+This is only possible with a **formal grammar** — and that grammar must be **context-free**, so that every requirement can be analyzed, validated, and audited without contextual ambiguity.
