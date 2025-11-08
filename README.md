@@ -179,7 +179,7 @@ machine-interpretable structures for validation, testing, and audit reporting.
 
 <terminator> ::= "."
 
-<modality> ::= "must" | "shall" | "must not" | "shall not"
+<modality> ::= "must" | "must not" 
 
 <role> ::= <identifier>
 <action> ::= <verb_phrase>
@@ -206,6 +206,33 @@ The Audit-by-Design DSL ensures that such requirements are written
 in a form that is **unambiguous, testable, and machine-validated**.  
 Even a simple statement like the following demonstrates how  
 security, compliance, and auditability are expressed in one atomic sentence.
+
+### Modalities and Determinism
+
+The Audit-by-Design DSL restricts modalities to a **binary logic**  
+in order to maintain full determinism and auditability.
+
+*Rationale*
+
+Only binary modalities can be deterministically evaluated — either a condition is fulfilled or it is violated.
+Anything else (e.g., “should” or “may”) would introduce uncertainty and therefore be non-deterministic, making it unsuitable for CI/CD validation and automated compliance checks.
+
+This strict modality model ensures traceability and verification in continuous audit pipelines, where every rule must yield a reproducible result: pass or fail.
+
+Alignment with RFC 2119
+
+This decision aligns with the IETF RFC 2119
+
+standard for normative language in technical specifications,
+which defines:
+
+MUST / MUST NOT – absolute requirements of the specification
+
+SHOULD / MAY – optional or recommended behavior, not mandatory
+
+By limiting the DSL to “must” and “must not”,
+we preserve semantic precision, regulatory coherence,
+and machine verifiability — all essential pillars of SECURE Audit-by-Design.
 
 
 │
