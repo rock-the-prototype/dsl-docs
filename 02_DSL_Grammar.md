@@ -117,6 +117,52 @@ without losing semantic meaning or auditability.
 The practical example and JSON equivalent
 → covers human and machine readability.
 
+### Lexical Rules
+
+| Token | Definition | Example |
+| `<identifier>` | Alphanumeric string without spaces | `system`, `user`, `gateway` |
+| `<verb_phrase>` | Plain English verb expression | `validate the access token` |
+| `<clause>` | Conditional or descriptive statement | `when receiving an ePrescription request` |
+| `<terminator>` | Period (`.`) marking end of statement | `.` |
+
+### Start Symbol
+
+The grammar always starts with the `<requirement>` non-terminal symbol,  
+which defines one complete, auditable requirement statement.
+
+### Validation Criteria
+
+- Each requirement must contain **one actor** and **one modality**.  
+- Sentences must always end with a **period (`.`)**.  
+- Keywords (`As`, `I`, `when`, `then`) are **reserved**.  
+- Modalities are limited to **must** and **must not**.  
+- Optional clauses (`when`, `then`) must appear in the defined order.  
+- Any deviation (missing period, invalid keyword, wrong sequence)  
+  renders the sentence invalid and triggers a parser error.
+
+### Normalization and Fault Tolerance
+
+While the DSL defines reserved keywords (`As`, `I`, `when`, `then`),  
+case sensitivity is intentionally relaxed to allow for human error  
+without compromising semantic precision.
+
+All valid statements are automatically transformed into a **normalized form**,  
+ensuring that every requirement — regardless of formatting or capitalization —  
+is interpreted identically by the parser.
+
+#### Rationale
+
+This normalization step makes the DSL both **accessible and auditable**:  
+- **Accessible**, because contributors can write requirements naturally,  
+  without worrying about exact casing or minor textual variations.  
+- **Auditable**, because normalization ensures that all requirements  
+  can be compared, validated, and versioned in a consistent canonical form.
+
+As a result, all requirements can be expressed in a **formal Normal Form (NF)**,  
+where every clause follows the same deterministic structure.  
+This enables precise formulation of acceptance criteria  
+and fully automated validation in CI/CD pipelines.
+  
 ## Why Context-Free Grammars (CFG) Matter
 
 To design a domain-specific language (DSL) that is **auditable, machine-readable, and automatically verifiable**, we need a formal foundation that defines how valid sentences are built and interpreted.
