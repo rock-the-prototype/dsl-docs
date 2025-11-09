@@ -1,7 +1,9 @@
-# 3. Formal Grammar (CFG – Context-Free Grammar)
+# 3. Formal Grammar (Context-Free Grammar - CFG)
 
 The grammar defines the smallest atomic unit of our DSL — a **Requirement Atom**.  
 This CFG is technology-agnostic and can be implemented in **Deno**, **Rust**, or **Python**.
+
+## The formal part (CFG)
 
 ```ebnf
 <requirement> ::= <sentence> <terminator>
@@ -16,6 +18,9 @@ This CFG is technology-agnostic and can be implemented in **Deno**, **Rust**, or
 <modality> ::= "must" | "must not"
 
 ```
+→ Formally correct.
+→ Context-free and deterministic.
+→ Minimal, auditable, unambiguous.
 
 ### Reference and Origin
 
@@ -50,9 +55,7 @@ a reproducible result: pass or fail.
 Alignment with RFC 2119 – Key words for use in RFCs to Indicate Requirement Levels
 
 This decision aligns with the Internet Engineering Task Force (IETF)
-standard RFC 2119
-,
-which defines the normative meaning of modal verbs in technical specifications.
+standard RFC 2119, which defines the normative meaning of modal verbs in technical specifications.
 
 MUST / MUST NOT – absolute requirements of the specification
 
@@ -61,6 +64,8 @@ SHOULD / MAY – optional or recommended behavior, not mandatory
 By limiting the DSL to “must” and “must not”,
 we preserve semantic precision, regulatory coherence,
 and machine verifiability — all essential pillars of Audit-by-Design.
+
+The semantic clarification of the modalities (“must,” “must not”) leads to clear requirements, compliant with RFC 2119 and all other standards
 
 ### Syntax Principles
 
@@ -109,6 +114,9 @@ without losing semantic meaning or auditability.
   "result": "then log success or failure"
 }
 ```
+The practical example and JSON equivalent
+→ covers human and machine readability.
+
 ## Why Context-Free Grammars (CFG) Matter
 
 To design a domain-specific language (DSL) that is **auditable, machine-readable, and automatically verifiable**, we need a formal foundation that defines how valid sentences are built and interpreted.
