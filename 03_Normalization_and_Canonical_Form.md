@@ -35,3 +35,27 @@ export function normalizeInput(input: string): string {
     )
     .trim();
 }
+```
+
+### JSON Schema Reference
+
+The canonical machine-readable definition of a Requirement Atom is provided as a JSON Schema, located in  
+[`dsl-core/src/schema/requirement.schema.json`](https://github.com/rock-the-prototype/dsl-core/blob/main/src/schema/requirement.schema.json).
+
+This schema follows the [JSON Schema Draft-07 Specification](https://json-schema.org/draft-07/json-schema-release-notes.html), ensuring compatibility across a wide range of validation libraries and CI/CD pipelines.
+
+#### Why JSON Schema?
+
+JSON Schema provides a formal contract that:
+- defines the structure and allowed values of each requirement,
+- enables automatic validation of artifacts,
+- and ensures reproducibility across implementations.
+
+#### Key Design Decisions
+
+- **Draft-07** was chosen for maximum tool compatibility and long-term stability.  
+- **Minimal required fields** (`actor`, `modality`, `action`) enforce atomic consistency.  
+- **Additional properties disabled** (`additionalProperties: false`) ensures strict typing.  
+- **Binary modality (`must` / `must not`)** preserves deterministic validation.
+
+By aligning with JSON Schema, the DSL can be validated in any runtime (Deno, Rust, Python) with identical results — a cornerstone of *Audit-by-Design*.
