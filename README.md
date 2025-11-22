@@ -27,6 +27,7 @@ This language is designed to:
 | 6 | **Java-free implementation** | Focus on Deno/TypeScript or Rust environments. |
 | 7 | **Rule-based prohibitions** | “Must not” and “May not” constructs for governance. |
 | 8 | **Central traceability** | Full audit trail and traceability of all rule changes. |
+| 9 | **Security by Design** | Validation, parsing, and data handling must guarantee protection against injection, malformed input, and misuse. The DSL never executes input, never interprets code, and enforces deterministic, safe processing at all times. |
 
                           
 # Motivation, goal setting, design principles
@@ -37,6 +38,11 @@ Digital transformation in regulated environments has reached a critical point.
 Many public digitalization projects in Germany and Europe have demonstrated the limits of fragmented, incompatible, and non-auditable infrastructures — both technically and in terms of public trust and acceptance.
 
 Following [**Auguste Kerkhoffs’ principle**](https://rock-the-prototype.com/en/cryptography/kerckhoff-principle/) — that security must rely on transparent, verifiable systems rather than obscurity — this project applies the same logic to **requirements engineering**. Software systems that govern public or regulated domains must be **traceable, testable, and independently auditable** from the first requirement onward.
+
+**Security by Design**
+The DSL enforces strict input handling and deterministic validation to prevent injection, ambiguity, or unintended code execution.
+Because the DSL treats all inputs as pure data—never executable logic—it eliminates entire classes of vulnerabilities such as XSS, RCE, and parser confusion attacks.
+This aligns with Auguste Kerkhoffs’ principle: security emerges from transparency and verifiability, not obscurity.
 
 ### Why a DSL for Requirements?
 
