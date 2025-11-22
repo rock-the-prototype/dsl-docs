@@ -25,5 +25,6 @@ This language is designed to:
 | 6 | **Java-free implementation** | Focus on Deno/TypeScript or Rust environments. |
 | 7 | **Rule-based prohibitions** | “Must not” and “May not” constructs for governance. |
 | 8 | **Central traceability** | Full audit trail and traceability of all rule changes. |
+| 9 | **Security by Design** | Validation, parsing, and data handling must guarantee protection against injection, malformed input, and misuse. The DSL never executes input, never interprets code, and enforces deterministic, safe processing at all times. |
 
 ---
