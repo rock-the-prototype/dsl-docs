@@ -1,9 +1,6 @@
 # 08. API Specification (OpenAPI 3.1)
 
-This document provides the official API specification for the Audit-by-Design DSL Core.  
-All endpoints are formally defined using the **OpenAPI 3.1** standard and ensure that the DSL can be integrated safely, deterministically, and reproducibly into external systems, CI/CD pipelines,  
-governance engines, and audit frameworks.
-
+This document provides the official API specification for the **Audit-by-Design DSL Core**.  
 The API is intentionally minimal, versioned, and built around the core DSL pipeline:
 
 1. **Normalization** — Convert user input into canonical form  
@@ -11,7 +8,17 @@ The API is intentionally minimal, versioned, and built around the core DSL pipel
 3. **Schema Validation** — Validate Requirement Atoms against the canonical JSON Schema  
 4. **Atomic Pipeline** — End-to-end processing in one request
 
-Together, these APIs offer a fully deterministic contract for sovereign and regulated software environments.
+All endpoints are formally defined using the **OpenAPI 3.1** standard and ensure that the DSL can be integrated safely, deterministically, and reproducibly into external systems, CI/CD pipelines,  
+governance engines, and audit frameworks.
+
+- CI/CD pipelines
+- audits and audit frameworks
+- governance engines
+- security tooling
+- requirements platforms
+- sovereign digital infrastructures
+
+Together, these APIs guarantee **auditability**, **determinism**, **transparency**, and **digital sovereignty**.
 
 ---
 
