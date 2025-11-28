@@ -102,6 +102,17 @@ There you’ll find:
 The `dsl-core` repository is where **machine-readable trust begins** —  
 it provides the structural backbone for any parser, validator, or compliance framework built on top of this DSL.
 
+## 🚀 Quickstart (try it in 5 minutes)
+
+**Normalize an AFO from text**
+echo "Die Software MUSS DSGVO einhalten." | deno run --no-prompt -A src/cli.ts normalize
+
+**Validate a normalized JSON file**
+deno run --no-prompt -A src/cli.ts validate ./examples/afo.json
+
+**Validate a folder of AFOs**
+find ./examples -name "*.json" | deno run --no-prompt -A src/cli.ts normalize
+
 ### 3️⃣ (Optional) Contribute & Participate
 
 The DSL is open for participation.  
@@ -269,3 +280,7 @@ and machine verifiability — all essential pillars of SECURE Audit-by-Design.
 The **Audit-by-Design DSL Docs ** are released under  
 [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).  
 © 2025 Sascha Block / Rock the Prototype
+
+The **Audit-by-Design DSL Core ** are under Copyright 2025 Sascha Block and are licensed under the Apache License, Version 2.0 (the "License"); you may not use the files except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ 
