@@ -58,6 +58,21 @@ A domain-specific language (DSL) addresses this by providing:
 Our DSL defines the atomic unit of trust:  
 a requirement that can be understood, verified, versioned, and audited — without depending on specific platforms or vendor interests.
 
+## Architecture Overview
+
+### How validation works - 
+
+Validation is performed in two stages:
+
+1. **Schema validation** ensures the requirement matches the canonical structure (shape).
+2. **Rule validation** applies normative constraints (semantics) to detect violations such as
+   non-binding modality, missing/placeholder actors, or atomicity violations.
+
+The JSON Schema defines **what a requirement is**.  
+The rule set defines **when a requirement is considered valid**.  
+The validation engine applies both deterministically and reports rule-based errors (Rule IDs).
+
+
 ### Context & Trust
 
 True digital sovereignty does not come from building yet another isolated infrastructure but from **making existing ones transparent and auditable**.  
