@@ -72,6 +72,8 @@ The JSON Schema defines **what a requirement is**.
 The rule set defines **when a requirement is considered valid**.  
 The validation engine applies both deterministically and reports rule-based errors (Rule IDs).
 
+## A DSL for Digital Sovereignty
+This DSL establishes a formally defined, machine-verifiable language to make requirements, rules, and validations transparent, auditable, and interoperable across existing digital infrastructures and usable for any sector or domain.
 
 ### Context & Trust
 
