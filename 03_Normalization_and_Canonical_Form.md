@@ -37,8 +37,64 @@ DSL keywords (As, I, When, Then) retain consistent capitalisation for readabilit
 Every DSL statement MUST end with exactly one ".".
 
 5. Normalization as an audit requirement
-Canonical Form is the basis for generating hash-stable audit artefacts
+Canonical Form is the mandatory input for the normative grammar and the basis for generating hash-stable audit artefacts.
+
 → different user input, same canonical output → same audit trail.
+
+---
+
+## Normative Grammar (EBNF)
+
+Normalization prepares a DSL statement for parsing —  
+**but it does not define whether a requirement exists.**
+
+The *existence* of a requirement is defined exclusively by the **normative grammar** below.
+
+This grammar is:
+- **strict**
+- **deterministic**
+- **language-agnostic**
+- and **audit-normative**
+
+Only statements that conform to this grammar are considered **valid Requirement Atoms**.
+
+### Formal Grammar Definition (EBNF)
+
+```ebnf
+(* Audit-by-Design DSL — Normative Grammar *)
+
+Requirement      = AsForm , "." | ActorForm , "." ;
+
+AsForm           = "as" , WS , Actor , "," , WS , Subject , WS ,
+                   Modality , WS , Clause ;
+
+ActorForm        = Actor , WS , Modality , WS , Clause ;
+
+Clause           = Action , [ WS , WhenClause ] , [ WS , ThenClause ] ;
+
+WhenClause       = "when" , WS , Condition ;
+ThenClause       = "then" , WS , Result ;
+
+Subject          = "i" | "we" ;
+
+Modality         = "must" | "must not" ;
+
+Actor            = ActorChar , { ActorChar } ;
+ActorChar        = Letter | Digit | "_" | "-" | WS ;
+
+Action           = Text ;
+Condition        = Text ;
+Result           = Text ;
+
+Text             = TextChar , { TextChar } ;
+TextChar         = ? any character except "." at end-of-statement ? ;
+
+WS               = " " , { " " } ;
+
+Letter           = "A"…"Z" | "a"…"z" ;
+Digit            = "0"…"9" ;
+```
+
 
 ## Implementation Reference
 
