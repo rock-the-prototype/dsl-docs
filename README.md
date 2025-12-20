@@ -182,6 +182,7 @@ By contributing to the Audit-by-Design DSL initiative, organizations gain tangib
 In short: **Organizations that contribute to the DSL are shaping the standard  
 for trustworthy digital services — not adapting secure design to it later.**
 
+```mermaid
 flowchart TD
     A[Human DSL Input]
     B["Normalization<br/>(Canonical Form)"]
@@ -195,6 +196,7 @@ flowchart TD
     C -->|valid only| D
     D --> E
     E -->|passes all rules| F
+```    
   
 Defines the smallest atomic unit of the Audit-by-Design DSL —  
 a **Requirement Atom** — based on a deterministic, context-free grammar (CFG).
