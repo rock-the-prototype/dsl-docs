@@ -4,18 +4,23 @@ This section documents how DSL statements are validated, parsed, and tested insi
 
 ## 4.1 Validation Layer
 
-Validation is performed in three deterministic layers:
+Validation is performed in four deterministic layers, each with a clearly defined responsibility:
 
-1️⃣ Normalization
-Transforms any user input into a canonical form by fixing spacing, casing, commas, and terminators.
+1️⃣ Normalization  
+Transforms free-form user input into a canonical representation.
 
-2️⃣ Parsing (CFG-based)
-Ensures syntactic correctness according to the formal DSL grammar (defined in 02_DSL_Grammar.md).
+2️⃣ Parsing (Normative Grammar)  
+Determines whether a statement exists as a valid Requirement Atom.
 
-3️⃣ Schema Validation (JSON Schema)
-Ensures semantic correctness of Requirement Atoms using the canonical JSON Schema definition.
+3️⃣ Rule-based Validation  
+Applies deterministic domain rules such as:
+- Actor validity
+- Binary modality
+- Atomicity constraints
 
-Together, these layers guarantee deterministic, reproducible auditability.
+4️⃣ Schema Validation (JSON Schema)  
+Ensures structural and semantic correctness of the resulting Requirement Atom.
+
 
 ## 4.2 Validation Pipeline Overview
 
@@ -23,13 +28,15 @@ User Input
    ↓
 Normalization
    ↓
-Parser (CFG rules)
+Parser (Normative Grammar)
    ↓
 Requirement Atom (JSON object)
    ↓
-JSON Schema Validation
+Rule-based Validation
    ↓
-Audit / CI/CD Pipeline
+Schema Validation
+   ↓
+Audit Decision (pass / fail) *PLUS* CI/CD Pipeline
 
 *Why this matters*
 
@@ -93,7 +100,11 @@ This produces deterministic results in CI/CD pipelines and audit processes.
 
 ### 4.3.3 Negative Tests — Rejecting Invalid Syntax
 
-Invalid statements must never be parsed into Requirement Atoms.
+Statements that violate the normative grammar must never be parsed into Requirement Atoms.
+
+Statements that conform to the grammar but violate validation rules
+(e.g. atomicity or actor constraints) are parsed but rejected during validation.
+
 
 Deno.test("Rejects invalid syntax (missing modality)", () => {
   const invalid = "As a system, I validate the access token.";
