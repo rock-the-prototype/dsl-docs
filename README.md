@@ -182,13 +182,20 @@ By contributing to the Audit-by-Design DSL initiative, organizations gain tangib
 In short: **Organizations that contribute to the DSL are shaping the standard  
 for trustworthy digital services — not adapting secure design to it later.**
 
-│
-│                  
-# Formal grammar, syntax principles, examples
-│
-├── 02_DSL_Grammar.md  
-the formal grammar definition ([02_DSL_Grammar.md](./02_DSL_Grammar.md)),syntax principles, and examples  
+flowchart TD
+    A[Human DSL Input]
+    B["Normalization<br/>(Canonical Form)"]
+    C["Formal Grammar / Parser<br/>(Does the requirement exist?)"]
+    D["Requirement Atom<br/>(Candidate)"]
+    E["Rules & Validation<br/>(Is it a good requirement?)"]
+    F["Audit-Ready Requirement Atom"]
 
+    A --> B
+    B --> C
+    C -->|valid only| D
+    D --> E
+    E -->|passes all rules| F
+  
 Defines the smallest atomic unit of the Audit-by-Design DSL —  
 a **Requirement Atom** — based on a deterministic, context-free grammar (CFG).
 
