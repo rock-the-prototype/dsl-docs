@@ -72,6 +72,16 @@ The JSON Schema defines **what a requirement is**.
 The rule set defines **when a requirement is considered valid**.  
 The validation engine applies both deterministically and reports rule-based errors (Rule IDs).
 
+### Public schema contracts (dsl-core)
+
+The canonical report output is defined as a public JSON Schema contract in `dsl-core`:
+
+- `schemas/report.schema.json`
+- `schemas/SCHEMA_CONTRACTS.md` (stability + versioning rules)
+
+Internal engine models are not contracts (`dsl-core/src/model/**`).
+
+
 ## A DSL for Digital Sovereignty
 This DSL establishes a formally defined, machine-verifiable language to make requirements, rules, and validations transparent, auditable, and interoperable across existing digital infrastructures and usable for any sector or domain.
 
